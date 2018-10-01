@@ -1,0 +1,6 @@
+This is my repository for CS:3012 Software Engineering course, and so far it will consists of my progress on the first assignment which is about the lowest common ancestor problem.
+
+I have decided to do this exercise using LISP, more precisely Common LISP, which I have never used before, so it will require me to learn how to program with LISP and all its related technologies.
+For example, I am using the SBCL implementation of Common LISP and also it is preferable to use Emacs for LISP as it grants acces to SLIME which is some kind of IDE that is built on top of Emacs. I have never used Emacs before so we'll see how well I fare with all this new things to learn.
+
+I will be using cl-unit-testing for unit testing of my software.s
