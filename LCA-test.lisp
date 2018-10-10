@@ -8,5 +8,8 @@
 (print *tree*)
 
 (define-test test-LCA
+	(assert-equal nil (LCA *tree* 390543 2))
+	(assert-equal 10 (LCA *tree* 2 7))
+	(assert-equal 10 (LCA *tree* 1 3))
 	(assert-equal 4 (LCA *tree* 2 7))
 	(assert-equal 2 (LCA *tree* 1 3)))
