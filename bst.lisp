@@ -26,7 +26,8 @@
            bst-tree-copy
            bst-tree-equal-p
            bst-values
-           bst-values-equal-p))
+           bst-values-equal-p
+           bst-path))
 
 (in-package bst)
 
@@ -80,6 +81,14 @@ lesser than another.")
            (bst-equal-p (bst-value tree1) (bst-value tree1))
            (bst-tree-equal-p (bst-left tree1) (bst-left tree2))
            (bst-tree-equal-p (bst-right tree1) (bst-right tree2)))))
+
+(defun bst-path (tree node path)
+  (vector-push (bst-value tree) path)
+  (if (bst-equal-p (bst-value tree) node)
+    ()
+    (if (bst-lesser-p (bst-value tree) node)
+      (bst-path (bst-right tree) node path)
+      (bst-path (bst-left tree) node path))))
 
 (defun bst-search (tree value)
   "If VALUE it is present in TREE, return VALUE and T,
