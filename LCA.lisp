@@ -5,9 +5,11 @@
 (in-package LCA)
 
 (defun LCA (tree node1 node2)
-	(if (bst-empty-p tree) (return-from LCA nil))
-	(if (eq (bst::bst-value tree) nil) (return-from LCA nil))
-	(if (or (not (bst-search tree node1))
+	(if (or (bst-empty-p tree)
+			(eq (bst::bst-value tree) nil)
+			(eq node1 nil)
+			(eq node2 nil)
+			(not (bst-search tree node1))
 			(not (bst-search tree node2)))
 		nil
 		(let* ((max-depth (bst-max-depth tree))
