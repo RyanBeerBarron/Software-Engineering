@@ -5,6 +5,8 @@
 (in-package LCA)
 
 (defun LCA (tree node1 node2)
+	(if (bst-empty-p tree) (return-from LCA nil))
+	(if (eq (bst::bst-value tree) nil) (return-from LCA nil))
 	(if (or (not (bst-search tree node1))
 			(not (bst-search tree node2)))
 		nil
@@ -18,4 +20,13 @@
 				 	 (length path2))))
 		(loop for j from 0 to (- i 1)
 			do (if (not (= (elt path1 j) (elt path2 j)))
-					(return (elt path1 (- j 1)))))))))
+					(return-from LCA (elt path1 (- j 1)))))
+		(elt path1 (- i 1))))))
+
+(defun bst-path (tree node path)
+  (vector-push (bst::bst-value tree) path)
+  (if (bst-equal-p (bst::bst-value tree) node)
+    ()
+    (if (bst-lesser-p (bst::bst-value tree) node)
+      (bst-path (bst::bst-right tree) node path)
+      (bst-path (bst::bst-left tree) node path))))
