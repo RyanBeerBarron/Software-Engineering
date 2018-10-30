@@ -1,4 +1,4 @@
 (in-package :software-engineering)
 
-(defun LCA (digraph node1 node2)
+(defun LCA (digraph vertex1 vertex2)
 	())
