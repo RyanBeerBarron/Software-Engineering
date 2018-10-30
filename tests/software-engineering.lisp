@@ -12,21 +12,23 @@
 (digraph:insert-edge *graph* 'e 'i)
 (digraph:insert-edge *graph* 'g 'j)
 (digraph:insert-edge *graph* 'c 'i)
-
+(digraph:insert-edge *graph* 'j 'd)
 (defparameter *emptygraph* (digraph:make-digraph))	
 
 (plan nil)
-
 (is (LCA *graph* 'b 'c) 'a "LCA of b and c is a")
 (is (LCA *graph* 'c 'd) 'a "LCA of c and d is a")
 (is (LCA *graph* 'e 'd) 'a "LCA of e and d is a")
 (is (LCA *graph* 'e 'f) 'b "LCA of e and f is b")
 (is (LCA *graph* 'g 'i) (list 'c 'e) "LCA of g and i is c and e")
 (is (LCA *graph* 'g 'j) 'g "LCA of g and j is g")
+(is (LCA *graph* 'c 'd) 'c "LCA of c and d is c")
+
 (is (LCA nil nil nil) nil "LCA of nil and nil in nilgraph is nil")
 (is (LCA *graph* nil nil) nil "LCA of nil and nil is nil")
+(is (LCA *graph* 'a nil) nil "LCA of nil and nil is nil")
 (is (LCA *emptygraph* 'a 'b) nil "LCA of a and b in emptygraph is nil")
 (is (LCA nil 'a 'b) nil "LCA of a and b is nil")
 (is (LCA *graph* 10321 244343) nil "LCA of int and int is nil")
-(is (LCA *graph* 'a 34546534) nil "LCA of a and int is a")
+(is (LCA *graph* 'a 34546534) nil "LCA of a and int is nil")
 (finalize)

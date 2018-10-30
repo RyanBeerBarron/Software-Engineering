@@ -8,5 +8,9 @@
 			(eq vertex1 nil)
 			(eq vertex2 nil))
 		nil
-		()
+		(if (digraph:reachablep digraph vertex1 vertex2)
+			(return-from LCA vertex1)
+			(if (digraph:reachablep digraph vertex2 vertex1)
+				(return-from LCA vertex2)
+				))
 		))
