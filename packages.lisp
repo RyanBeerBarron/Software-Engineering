@@ -1,6 +1,6 @@
 (defpackage software-engineering
   (:use :cl)
-  (:export :LCA))
+  (:export :LCA :test))
 
 
 (defpackage software-engineering-test
