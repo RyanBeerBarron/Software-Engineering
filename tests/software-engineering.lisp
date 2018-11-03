@@ -14,13 +14,16 @@
 (digraph:insert-edge *graph* 'c 'i)
 (defparameter *emptygraph* (digraph:make-digraph))	
 (defparameter *intgraph* (digraph:make-digraph :initial-vertices '(1 2 3 4 5 6 7 8 9)))
+(format t "Graph is: ~a~%With edges: ~a~%" *graph* (digraph:edges *graph*))
+(defun list-equal (list1 list2)
+	(equal nil (set-difference list1 list2)))
 
 (plan nil)
 (is (LCA *graph* 'b 'c) 'a "LCA of b and c is a")
 (is (LCA *graph* 'c 'd) 'a "LCA of c and d is a")
 (is (LCA *graph* 'e 'd) 'a "LCA of e and d is a")
 (is (LCA *graph* 'e 'f) 'b "LCA of e and f is b")
-(is (LCA *graph* 'g 'i) (list 'c 'e) "LCA of g and i is c and e")
+(is (LCA *graph* 'g 'i) (list 'c 'e) :test #'list-equal "LCA of g and i is c and e")
 (is (LCA *graph* 'g 'j) 'g "LCA of g and j is g")
 (is (LCA *graph* 'c 'd) 'a "LCA of c and d is a")
 
@@ -32,3 +35,4 @@
 (is (LCA *graph* 10321 244343) nil "LCA of int and int is nil")
 (is (LCA *graph* 'a 34546534) nil "LCA of a and int is nil")
 (finalize)
+
