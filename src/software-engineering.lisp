@@ -13,9 +13,10 @@
 			(return-from LCA vertex1)
 			(if (digraph:reachablep digraph vertex2 vertex1)
 				(return-from LCA vertex2)
-				(progn (let ((pred1 '())
-							  (pred2 '())
-			  					(graph (digraph:copy-digraph digraph)))
+				(progn 
+				(let ((pred1 '())
+					  (pred2 '())
+			  		  (graph (digraph:copy-digraph digraph)))
 				(setf pred1 (ancestor_list graph vertex1 pred1))
 				(setf pred2 (ancestor_list graph vertex2 pred2))
 				(let* ((ancestors (intersection pred1 pred2))
@@ -40,7 +41,3 @@
 				(push predecessor pred)
 				(setf pred (ancestor_list digraph predecessor pred)))))
 	(return-from ancestor_list pred))
-
-
-		
-			
