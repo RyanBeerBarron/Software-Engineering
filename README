@@ -1,11 +1,1 @@
-This is my repository for CS:3012 Software Engineering course, and so far it will consists of my progress on the first assignment which is about the lowest common ancestor problem using a binary tree.
-
-I have decided to do this exercise using LISP, more precisely Common LISP, which I have never used before, so it will require me to learn how to program with LISP and all its related technologies.
-I am using the SBCL implementation of Common LISP.
-
-I am using lisp-unit for unit testing of my software as it is easy to use. Source: https://github.com/OdonataResearchLLC/lisp-unit
-And I am using a basic binary tree program which I've found on gitHub, bst.lisp Source: https://github.com/glv2/bst
-
-To compile and run the code, start sbcl in the repo and type in '(load "load.lisp")'. This will load all the files in the right order.
-To run the tests, type in the REPL '(lisp-unit:run-tests :all :lca-test)'.
-And '(quit)' to safely quit the REPL.
+This is my repository for CS:3012 Software Engineering course.

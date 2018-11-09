@@ -1,4 +1,4 @@
-This is my repository for CS:3012 Software Engineering course, and so far it will consists of my progress on the first assignment which is about the lowest common ancestor problem using a binary tree.
+This is my assignment for the lowest common ancestor with a binary tree.
 
 I have decided to do this exercise using LISP, more precisely Common LISP, which I have never used before, so it will require me to learn how to program with LISP and all its related technologies.
 I am using the SBCL implementation of Common LISP.
