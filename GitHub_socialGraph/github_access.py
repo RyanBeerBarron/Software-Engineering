@@ -26,7 +26,6 @@ def following_graph():
 				x +=1
 	file.write("\n\t],\n\t\"links\":[\n\t\t{\"source\":0,\"target\":0,\"weight\":10}")		
 	friends_of_friends = x
-	print("Friends of friends is: %d" % friends_of_friends)
 	for user in start_user.get_following():
 		file.write(",\n\t\t{\"source\":0,\"target\":%d,\"weight\":10}" % userdictionary[user.login])
 		for user_user in g.get_user(user.login).get_following():
@@ -58,7 +57,6 @@ def follower_graph():
 				x +=1
 	file.write("\n\t],\n\t\"links\":[\n\t\t{\"source\":0,\"target\":0,\"weight\":10}")			
 	friends_of_friends = x
-	print("Friends of friends is: %d" % friends_of_friends)
 	for user in start_user.get_followers():
 		file.write(",\n\t\t{\"source\":0,\"target\":%d,\"weight\":10}" % userdictionary[user.login])
 		for user_user in g.get_user(user.login).get_followers():
